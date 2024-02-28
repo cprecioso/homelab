@@ -80,6 +80,7 @@ services:
       - "$BASE_FOLDER/config/heimdall:/config"
 
   caddy:
+    image: localhost/mediacenter_caddy:latest
     build:
       context: ./caddy
       pull: true
