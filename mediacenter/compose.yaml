@@ -46,7 +46,7 @@ services:
       - "$BASE_FOLDER/media:/media"
 
   deluge:
-    image: lscr.io/linuxserver/deluge:2.1.1
+    image: lscr.io/linuxserver/deluge:18.04.1
     pull_policy: always
     restart: unless-stopped
     ports:
