@@ -98,16 +98,15 @@ services:
       - "$BASE_FOLDER/config/caddy/data:/data"
       - "$BASE_FOLDER/config/caddy/config:/config"
 
-  xteve:
-    image: docker.io/alturismo/xteve:latest
+  threadfin:
+    image: docker.io/fyb3roptik/threadfin:1.0.24
     pull_policy: always
     restart: unless-stopped
     env_file: .env
     ports:
       - "34400:34400"
     volumes:
-      - "$BASE_FOLDER/config/xteve/data:/root/.xteve"
-      - "$BASE_FOLDER/config/xteve/config:/config"
+      - "$BASE_FOLDER/config/threadfin:/home/threadfin/conf"
 
   stremio:
     image: docker.io/stremio/server:v4.20.5
