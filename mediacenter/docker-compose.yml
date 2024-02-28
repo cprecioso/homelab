@@ -19,8 +19,8 @@ services:
     devices:
       - "/dev/dri:/dev/dri"
     volumes:
-      - "/mnt/persistent/plex/config/plex:/config"
-      - "/mnt/persistent/plex/media:/media"
+      - "$BASE_FOLDER/config/plex:/config"
+      - "$BASE_FOLDER/media:/media"
 
   sonarr:
     image: lscr.io/linuxserver/sonarr:latest
@@ -29,8 +29,8 @@ services:
       - 8989:8989
     env_file: .env
     volumes:
-      - "/mnt/persistent/plex/config/sonarr:/config"
-      - "/mnt/persistent/plex/media:/media"
+      - "$BASE_FOLDER/config/sonarr:/config"
+      - "$BASE_FOLDER/media:/media"
 
   radarr:
     image: lscr.io/linuxserver/radarr:latest
@@ -39,8 +39,8 @@ services:
       - 7878:7878
     env_file: .env
     volumes:
-      - "/mnt/persistent/plex/config/radarr:/config"
-      - "/mnt/persistent/plex/media:/media"
+      - "$BASE_FOLDER/config/radarr:/config"
+      - "$BASE_FOLDER/media:/media"
 
   deluge:
     image: lscr.io/linuxserver/deluge:latest
@@ -51,8 +51,8 @@ services:
       - 6881:6881/udp
     env_file: .env
     volumes:
-      - "/mnt/persistent/plex/config/deluge:/config"
-      - "/mnt/persistent/plex/media:/media"
+      - "$BASE_FOLDER/config/deluge:/config"
+      - "$BASE_FOLDER/media:/media"
 
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:latest
@@ -61,7 +61,7 @@ services:
       - 9696:9696
     env_file: .env
     volumes:
-      - "/mnt/persistent/plex/config/prowlarr:/config"
+      - "$BASE_FOLDER/config/prowlarr:/config"
 
   heimdall:
     image: lscr.io/linuxserver/heimdall:latest
@@ -71,7 +71,7 @@ services:
       - PGID=1000
     env_file: .env
     volumes:
-      - "/mnt/persistent/plex/config/heimdall:/config"
+      - "$BASE_FOLDER/config/heimdall:/config"
 
   caddy:
     image: localhost/mediacenter_caddy
@@ -88,8 +88,8 @@ services:
       - "443:443"
       - "443:443/udp"
     volumes:
-      - "/mnt/persistent/plex/config/caddy/data:/data"
-      - "/mnt/persistent/plex/config/caddy/config:/config"
+      - "$BASE_FOLDER/config/caddy/data:/data"
+      - "$BASE_FOLDER/config/caddy/config:/config"
 
   xteve:
     image: docker.io/alturismo/xteve:latest
@@ -98,8 +98,8 @@ services:
     ports:
       - "34400:34400"
     volumes:
-      - "/mnt/persistent/plex/config/xteve/data:/root/.xteve"
-      - "/mnt/persistent/plex/config/xteve/config:/config"
+      - "$BASE_FOLDER/config/xteve/data:/root/.xteve"
+      - "$BASE_FOLDER/config/xteve/config:/config"
 
   stremio:
     image: docker.io/stremio/server:latest
