@@ -69,7 +69,7 @@ services:
       - "$BASE_FOLDER/config/prowlarr:/config"
 
   heimdall:
-    image: lscr.io/linuxserver/heimdall:2.6.1
+    image: lscr.io/linuxserver/heimdall:2021.11.28
     pull_policy: always
     restart: unless-stopped
     environment:
