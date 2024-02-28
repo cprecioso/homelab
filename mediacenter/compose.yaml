@@ -84,7 +84,7 @@ services:
     build:
       context: ./caddy
       pull: true
-    pull_policy: build
+    # pull_policy: build
     restart: unless-stopped
     environment:
       CF_API_TOKEN: $CF_API_TOKEN
