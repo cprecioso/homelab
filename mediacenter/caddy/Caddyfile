@@ -1,0 +1,31 @@
+{
+	acme_dns cloudflare {env.CF_API_TOKEN}
+}
+
+{env.BASE_DOMAIN} {
+	reverse_proxy heimdall:80 {
+		header_up Host localhost
+		header_up Origin localhost
+		header_up Referer localhost
+	}
+}
+
+*.{env.BASE_DOMAIN} {
+	@plex host plex.{env.BASE_DOMAIN}
+	handle @plex {
+		reverse_proxy plex:32400 {
+			header_up Host localhost
+			header_up Origin localhost
+			header_up Referer localhost
+		}
+	}
+
+	@stremio host stremio.{env.BASE_DOMAIN}
+	handle @stremio {
+		reverse_proxy stremio:11470 {
+			header_up Host localhost
+			header_up Origin localhost
+			header_up Referer localhost
+		}
+	}
+}
