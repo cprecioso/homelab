@@ -20,6 +20,51 @@
 		}
 	}
 
+  @sonarr host sonarr.{$BASE_DOMAIN}
+	handle @sonarr {
+		reverse_proxy sonarr:8989 {
+			header_up Host localhost
+			header_up Origin localhost
+			header_up Referer localhost
+		}
+	}
+
+  @radarr host radarr.{$BASE_DOMAIN}
+	handle @radarr {
+		reverse_proxy radarr:7878 {
+			header_up Host localhost
+			header_up Origin localhost
+			header_up Referer localhost
+		}
+	}
+
+  @deluge host deluge.{$BASE_DOMAIN}
+	handle @deluge {
+		reverse_proxy deluge:8112 {
+			header_up Host localhost
+			header_up Origin localhost
+			header_up Referer localhost
+		}
+	}
+
+  @prowlarr host prowlarr.{$BASE_DOMAIN}
+	handle @prowlarr {
+		reverse_proxy prowlarr:9696 {
+			header_up Host localhost
+			header_up Origin localhost
+			header_up Referer localhost
+		}
+	}
+
+  @threadfin host threadfin.{$BASE_DOMAIN}
+	handle @threadfin {
+		reverse_proxy threadfin:34400 {
+			header_up Host localhost
+			header_up Origin localhost
+			header_up Referer localhost
+		}
+	}
+
 	@stremio host stremio.{$BASE_DOMAIN}
 	handle @stremio {
 		reverse_proxy stremio:11470 {
