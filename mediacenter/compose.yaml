@@ -27,8 +27,8 @@ services:
     image: lscr.io/linuxserver/sonarr:4.0.2
     pull_policy: always
     restart: unless-stopped
-    ports:
-      - 8989:8989
+    expose:
+      - 8989
     env_file: .env
     volumes:
       - "$BASE_FOLDER/config/sonarr:/config"
@@ -38,8 +38,8 @@ services:
     image: lscr.io/linuxserver/radarr:5.3.6
     pull_policy: always
     restart: unless-stopped
-    ports:
-      - 7878:7878
+    expose:
+      - 7878
     env_file: .env
     volumes:
       - "$BASE_FOLDER/config/radarr:/config"
@@ -49,8 +49,9 @@ services:
     image: lscr.io/linuxserver/deluge:2.1.1
     pull_policy: always
     restart: unless-stopped
+    expose:
+      - 8112
     ports:
-      - 8112:8112
       - 6881:6881
       - 6881:6881/udp
     env_file: .env
@@ -62,8 +63,8 @@ services:
     image: lscr.io/linuxserver/prowlarr:1.13.3
     pull_policy: always
     restart: unless-stopped
-    ports:
-      - 9696:9696
+    expose:
+      - 9696
     env_file: .env
     volumes:
       - "$BASE_FOLDER/config/prowlarr:/config"
@@ -72,6 +73,8 @@ services:
     image: lscr.io/linuxserver/heimdall:2.6.1
     pull_policy: always
     restart: unless-stopped
+    expose:
+      - 80
     environment:
       - PUID=1000
       - PGID=1000
@@ -104,8 +107,8 @@ services:
     pull_policy: always
     restart: unless-stopped
     env_file: .env
-    ports:
-      - "34400:34400"
+    expose:
+      - 34400
     volumes:
       - "$BASE_FOLDER/config/threadfin:/home/threadfin/conf"
 
