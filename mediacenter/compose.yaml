@@ -113,7 +113,7 @@ services:
       - "$BASE_FOLDER/config/threadfin:/home/threadfin/conf"
 
   stremio:
-    image: docker.io/stremio/server:v4.20.5
+    image: docker.io/stremio/server:v4.20.7
     pull_policy: always
     restart: unless-stopped
     env_file: .env
