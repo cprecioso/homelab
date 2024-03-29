@@ -7,6 +7,10 @@ on:
   schedule:
     - cron: "0 4 * * *" # daily at 4am UTC
 
+concurrency:
+  group: main-branch-build
+  cancel-in-progress: true
+
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
