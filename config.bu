@@ -1,0 +1,15 @@
+variant: fcos
+version: 1.5.0
+
+storage:
+  filesystems:
+    - device: /dev/disk/by-label/persistent
+      format: xfs
+      path: /mnt/persistent
+      wipe_filesystem: false
+      label: persistent
+      with_mount_unit: true
+
+passwd:
+  users:
+    - name: cprecioso
