@@ -10,6 +10,11 @@ storage:
       label: persistent
       with_mount_unit: true
 
+  files:
+    - path: /home/cprecioso/.ssh/authorized_keys.d/cprecioso
+      contents:
+        source: https://github.com/cprecioso.keys
+
 passwd:
   users:
     - name: cprecioso
