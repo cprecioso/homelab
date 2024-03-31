@@ -16,7 +16,23 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  build:
+  build-ignition:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker://quay.io/coreos/butane:release
+        with:
+          args: butane --pretty --strict < config.bu > config.ign
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ignition-config
+          path: config.ign
+
+  build-os:
     runs-on: ubuntu-latest
 
     permissions:
