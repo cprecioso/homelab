@@ -38,3 +38,5 @@ storage:
 passwd:
   users:
     - name: cprecioso
+      groups:
+        - sudo
