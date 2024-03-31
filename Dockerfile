@@ -1,9 +1,3 @@
-# Create Ignition config from Butane in repo
-FROM quay.io/coreos/butane:release AS config
-WORKDIR /work
-COPY --link ./config.bu /work/config.bu
-RUN butane --pretty --strict < ./config.bu > ./config.ign
-
 # Create Fedora CoreOS image
 FROM quay.io/fedora/fedora-coreos:stable
 
@@ -34,6 +28,3 @@ RUN systemctl mask zincati
 # Enable systemd auto-update
 COPY --link ./autoupdate/ /
 RUN systemctl enable autoupdate-host.timer
-
-# Add Ignition config
-COPY --from=config /work/config.ign /usr/share/ignition/config.ign
