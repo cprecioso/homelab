@@ -28,5 +28,12 @@ RUN --mount=type=cache,target=/var/cache/rpm-ostree rpm-ostree install docker-ce
 RUN systemctl enable docker
 RUN ostree container commit
 
+# Change Zincati for systemd auto-update
+RUN systemctl mask zincati
+
+# Enable systemd auto-update
+COPY --link ./autoupdate/ /
+RUN systemctl enable autoupdate-host.timer
+
 # Add Ignition config
 COPY --from=config /work/config.ign /usr/share/ignition/config.ign
