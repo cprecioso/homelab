@@ -1,3 +1,5 @@
+# syntax=docker/dockerfile:1
+
 # Create Fedora CoreOS image
 FROM quay.io/fedora/fedora-coreos:stable
 
