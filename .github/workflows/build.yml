@@ -13,7 +13,6 @@ concurrency:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   build-ignition:
@@ -33,12 +32,20 @@ jobs:
           path: config.ign
           overwrite: true
 
-  build-os:
+  build-docker:
     runs-on: ubuntu-latest
 
     permissions:
       contents: read
       packages: write
+
+    strategy:
+      matrix:
+        image:
+          - context: "."
+            name: "${{ github.repository }}"
+          - context: "./mediacenter/caddy"
+            name: "${{ github.repository }}-caddy"
 
     steps:
       - uses: actions/checkout@v4
@@ -54,7 +61,7 @@ jobs:
       - uses: docker/metadata-action@v5
         id: meta
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: ${{ env.REGISTRY }}/${{ matrix.image.name}}
           tags: |
             type=raw,value=latest
             type=schedule
@@ -63,7 +70,7 @@ jobs:
       - uses: docker/build-push-action@v5
         id: build-and-push
         with:
-          context: .
+          context: ${{ matrix.image.context }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
