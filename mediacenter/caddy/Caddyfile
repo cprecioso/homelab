@@ -20,7 +20,7 @@
 		}
 	}
 
-  @sonarr host sonarr.{$BASE_DOMAIN}
+	@sonarr host sonarr.{$BASE_DOMAIN}
 	handle @sonarr {
 		reverse_proxy sonarr:8989 {
 			header_up Host localhost
@@ -29,7 +29,7 @@
 		}
 	}
 
-  @radarr host radarr.{$BASE_DOMAIN}
+	@radarr host radarr.{$BASE_DOMAIN}
 	handle @radarr {
 		reverse_proxy radarr:7878 {
 			header_up Host localhost
@@ -38,7 +38,7 @@
 		}
 	}
 
-  @deluge host deluge.{$BASE_DOMAIN}
+	@deluge host deluge.{$BASE_DOMAIN}
 	handle @deluge {
 		reverse_proxy deluge:8112 {
 			header_up Host localhost
@@ -47,7 +47,7 @@
 		}
 	}
 
-  @prowlarr host prowlarr.{$BASE_DOMAIN}
+	@prowlarr host prowlarr.{$BASE_DOMAIN}
 	handle @prowlarr {
 		reverse_proxy prowlarr:9696 {
 			header_up Host localhost
@@ -56,7 +56,7 @@
 		}
 	}
 
-  @threadfin host threadfin.{$BASE_DOMAIN}
+	@threadfin host threadfin.{$BASE_DOMAIN}
 	handle @threadfin {
 		reverse_proxy threadfin:34400 {
 			header_up Host localhost
