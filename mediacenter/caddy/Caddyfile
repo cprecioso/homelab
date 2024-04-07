@@ -11,6 +11,15 @@
 }
 
 *.{$BASE_DOMAIN} {
+	@login host login.{$BASE_DOMAIN}
+	handle @login {
+		reverse_proxy authelia:9091 {
+			header_up Host localhost
+			header_up Origin localhost
+			header_up Referer localhost
+		}
+	}
+
 	@plex host plex.{$BASE_DOMAIN}
 	handle @plex {
 		reverse_proxy plex:32400 {
