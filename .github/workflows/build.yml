@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: "0 4 * * *" # daily at 4am UTC
+    - cron: "0 4 * * 0" # on Sundays at 4am UTC
 
 concurrency:
   group: main-branch-build
@@ -15,23 +15,6 @@ env:
   REGISTRY: ghcr.io
 
 jobs:
-  build-ignition:
-    runs-on: ubuntu-latest
-
-    permissions:
-      contents: read
-
-    steps:
-      - uses: actions/checkout@v4
-      - uses: docker://quay.io/coreos/butane:release
-        with:
-          args: --pretty --strict -o config.ign config.bu
-      - uses: actions/upload-artifact@v4
-        with:
-          name: ignition-config
-          path: config.ign
-          overwrite: true
-
   build-docker:
     runs-on: ubuntu-latest
 
@@ -42,8 +25,6 @@ jobs:
     strategy:
       matrix:
         image:
-          - context: "."
-            name: "${{ github.repository }}"
           - context: "./mediacenter/caddy"
             name: "${{ github.repository }}-caddy"
 
@@ -76,28 +57,3 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-
-  build-pages:
-    runs-on: ubuntu-latest
-    needs:
-      - build-ignition
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    permissions:
-      pages: write
-      id-token: write
-
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v4
-        with:
-          name: ignition-config
-          path: out
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: out
-      - id: deployment
-        uses: actions/deploy-pages@v4
