@@ -60,7 +60,7 @@ services:
       - "$BASE_FOLDER/media:/media"
 
   prowlarr:
-    image: lscr.io/linuxserver/prowlarr:1.16.2
+    image: lscr.io/linuxserver/prowlarr:1.17.2
     pull_policy: always
     restart: unless-stopped
     expose:
