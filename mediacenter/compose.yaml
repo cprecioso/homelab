@@ -100,7 +100,7 @@ services:
       - "$BASE_FOLDER/config/caddy/config:/config"
 
   threadfin:
-    image: docker.io/fyb3roptik/threadfin:1.1.6
+    image: docker.io/fyb3roptik/threadfin:1.1.7
     pull_policy: always
     restart: unless-stopped
     env_file: .env
