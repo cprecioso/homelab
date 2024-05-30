@@ -7,4 +7,4 @@ RUN --mount=type=cache,target=/go/pkg/mod/ xcaddy build --with github.com/caddy-
 FROM docker.io/library/caddy:2.8.0-alpine
 
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
-COPY ./Caddyfile /etc/caddy/Caddyfile
+COPY --link ./Caddyfile /etc/caddy/Caddyfile
