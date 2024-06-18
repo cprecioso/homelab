@@ -48,7 +48,7 @@ jobs:
             type=schedule
             type=sha
 
-      - uses: docker/build-push-action@v5
+      - uses: docker/build-push-action@v6
         id: build-and-push
         with:
           context: ${{ matrix.image.context }}
