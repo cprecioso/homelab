@@ -35,7 +35,7 @@ services:
       - "$BASE_FOLDER/media:/media"
 
   radarr:
-    image: lscr.io/linuxserver/radarr:5.6.0
+    image: lscr.io/linuxserver/radarr:5.7.0
     pull_policy: always
     restart: unless-stopped
     expose:
