@@ -119,14 +119,3 @@ services:
       - "NO_CORS=1"
     ports:
       - "11470:11470"
-
-  recyclarr:
-    image: ghcr.io/recyclarr/recyclarr:7.1.1
-    pull_policy: always
-    restart: unless-stopped
-    env_file: .env
-    environment:
-      - "RECYCLARR_CREATE_CONFIG=true"
-    user: "0:0"
-    volumes:
-      - "$BASE_FOLDER/config/recyclarr:/config"
