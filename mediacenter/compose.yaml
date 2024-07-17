@@ -2,7 +2,7 @@ services:
   plex:
     image: lscr.io/linuxserver/plex:1.40.4
     pull_policy: always
-    restart: unless-stopped
+    restart: always
     ports:
       - "32400:32400"
       - "1900:1900/udp"
@@ -26,7 +26,7 @@ services:
   sonarr:
     image: lscr.io/linuxserver/sonarr:4.0.7
     pull_policy: always
-    restart: unless-stopped
+    restart: always
     expose:
       - 8989
     env_file: .env
@@ -37,7 +37,7 @@ services:
   radarr:
     image: lscr.io/linuxserver/radarr:5.7.0
     pull_policy: always
-    restart: unless-stopped
+    restart: always
     expose:
       - 7878
     env_file: .env
@@ -48,7 +48,7 @@ services:
   deluge:
     image: lscr.io/linuxserver/deluge:2.1.1
     pull_policy: always
-    restart: unless-stopped
+    restart: always
     expose:
       - 8112
     ports:
@@ -62,7 +62,7 @@ services:
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:1.20.1
     pull_policy: always
-    restart: unless-stopped
+    restart: always
     expose:
       - 9696
     env_file: .env
@@ -72,7 +72,7 @@ services:
   heimdall:
     image: lscr.io/linuxserver/heimdall:2.6.1
     pull_policy: always
-    restart: unless-stopped
+    restart: always
     expose:
       - 80
     environment:
@@ -85,7 +85,7 @@ services:
   caddy:
     image: ghcr.io/cprecioso/homelab-caddy:latest
     pull_policy: always
-    restart: unless-stopped
+    restart: always
     environment:
       CF_API_TOKEN: $CF_API_TOKEN
       BASE_DOMAIN: $BASE_DOMAIN
@@ -103,7 +103,7 @@ services:
   threadfin:
     image: docker.io/fyb3roptik/threadfin:1.1.16
     pull_policy: always
-    restart: unless-stopped
+    restart: always
     env_file: .env
     expose:
       - 34400
@@ -113,7 +113,7 @@ services:
   stremio:
     image: docker.io/stremio/server:v4.20.8
     pull_policy: always
-    restart: unless-stopped
+    restart: always
     env_file: .env
     environment:
       - "NO_CORS=1"
