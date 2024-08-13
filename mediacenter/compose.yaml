@@ -69,6 +69,17 @@ services:
     volumes:
       - "${BASE_FOLDER:?error}/config/prowlarr:/config"
 
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:1.4.3
+    pull_policy: always
+    restart: always
+    expose:
+      - 6767
+    env_file: .env
+    volumes:
+      - "${BASE_FOLDER:?error}/config/bazarr:/config"
+      - "${BASE_FOLDER:?error}/media:/media"
+
   heimdall:
     image: lscr.io/linuxserver/heimdall:2.6.1
     pull_policy: always

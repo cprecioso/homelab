@@ -57,6 +57,15 @@
 		}
 	}
 
+	@bazarr host bazarr.{$BASE_DOMAIN}
+	handle @bazarr {
+		reverse_proxy bazarr:6767 {
+			header_up Host localhost
+			header_up Origin localhost
+			header_up Referer localhost
+		}
+	}
+
 	@threadfin host threadfin.{$BASE_DOMAIN}
 	handle @threadfin {
 		reverse_proxy threadfin:34400 {
