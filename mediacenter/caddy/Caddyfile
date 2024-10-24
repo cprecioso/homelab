@@ -65,22 +65,4 @@
 			header_up Referer localhost
 		}
 	}
-
-	@threadfin host threadfin.{$BASE_DOMAIN}
-	handle @threadfin {
-		reverse_proxy threadfin:34400 {
-			header_up Host localhost
-			header_up Origin localhost
-			header_up Referer localhost
-		}
-	}
-
-	@stremio host stremio.{$BASE_DOMAIN}
-	handle @stremio {
-		reverse_proxy stremio:11470 {
-			header_up Host localhost
-			header_up Origin localhost
-			header_up Referer localhost
-		}
-	}
 }
