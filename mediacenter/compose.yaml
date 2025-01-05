@@ -35,7 +35,7 @@ services:
       - "${BASE_FOLDER:?error}/media:/media"
 
   radarr:
-    image: lscr.io/linuxserver/radarr:5.16.3
+    image: lscr.io/linuxserver/radarr:5.17.2
     pull_policy: always
     restart: always
     expose:
@@ -60,7 +60,7 @@ services:
       - "${BASE_FOLDER:?error}/media:/media"
 
   prowlarr:
-    image: lscr.io/linuxserver/prowlarr:1.28.2
+    image: lscr.io/linuxserver/prowlarr:1.29.2
     pull_policy: always
     restart: always
     expose:
