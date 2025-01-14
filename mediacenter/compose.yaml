@@ -110,3 +110,17 @@ services:
     volumes:
       - "${BASE_FOLDER:?error}/config/caddy/data:/data"
       - "${BASE_FOLDER:?error}/config/caddy/config:/config"
+
+  homeassistant:
+    image: lscr.io/linuxserver/homeassistant:2025.1.2
+    restart: always
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - DOCKER_MODS=linuxserver/mods:homeassistant-hacs
+    env_file: .env
+    volumes:
+      - "${BASE_FOLDER:?error}/config/homeassistant/config:/config"
+    expose:
+      - 8123
