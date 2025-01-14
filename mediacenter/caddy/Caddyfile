@@ -65,13 +65,4 @@
 			header_up Referer localhost
 		}
 	}
-
-	@homeassistant host homeassistant.{$BASE_DOMAIN}
-	handle @homeassistant {
-		reverse_proxy homeassistant:8123 {
-			header_up Host localhost
-			header_up Origin localhost
-			header_up Referer localhost
-		}
-	}
 }
