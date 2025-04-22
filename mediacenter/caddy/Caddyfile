@@ -1,5 +1,5 @@
 {
-	acme_dns cloudflare {$CF_API_TOKEN}
+	dns cloudflare {$CF_API_TOKEN}
 	email {$ACME_EMAIL}
 }
 
@@ -11,58 +11,50 @@
 	}
 }
 
-*.{$BASE_DOMAIN} {
-	@plex host plex.{$BASE_DOMAIN}
-	handle @plex {
-		reverse_proxy plex:32400 {
-			header_up Host localhost
-			header_up Origin localhost
-			header_up Referer localhost
-		}
+plex.{$BASE_DOMAIN} {
+	reverse_proxy plex:32400 {
+		header_up Host localhost
+		header_up Origin localhost
+		header_up Referer localhost
 	}
+}
 
-	@sonarr host sonarr.{$BASE_DOMAIN}
-	handle @sonarr {
-		reverse_proxy sonarr:8989 {
-			header_up Host localhost
-			header_up Origin localhost
-			header_up Referer localhost
-		}
+sonarr.{$BASE_DOMAIN} {
+	reverse_proxy sonarr:8989 {
+		header_up Host localhost
+		header_up Origin localhost
+		header_up Referer localhost
 	}
+}
 
-	@radarr host radarr.{$BASE_DOMAIN}
-	handle @radarr {
-		reverse_proxy radarr:7878 {
-			header_up Host localhost
-			header_up Origin localhost
-			header_up Referer localhost
-		}
+radarr.{$BASE_DOMAIN} {
+	reverse_proxy radarr:7878 {
+		header_up Host localhost
+		header_up Origin localhost
+		header_up Referer localhost
 	}
+}
 
-	@deluge host deluge.{$BASE_DOMAIN}
-	handle @deluge {
-		reverse_proxy deluge:8112 {
-			header_up Host localhost
-			header_up Origin localhost
-			header_up Referer localhost
-		}
+deluge.{$BASE_DOMAIN} {
+	reverse_proxy deluge:8112 {
+		header_up Host localhost
+		header_up Origin localhost
+		header_up Referer localhost
 	}
+}
 
-	@prowlarr host prowlarr.{$BASE_DOMAIN}
-	handle @prowlarr {
-		reverse_proxy prowlarr:9696 {
-			header_up Host localhost
-			header_up Origin localhost
-			header_up Referer localhost
-		}
+prowlarr.{$BASE_DOMAIN} {
+	reverse_proxy prowlarr:9696 {
+		header_up Host localhost
+		header_up Origin localhost
+		header_up Referer localhost
 	}
+}
 
-	@bazarr host bazarr.{$BASE_DOMAIN}
-	handle @bazarr {
-		reverse_proxy bazarr:6767 {
-			header_up Host localhost
-			header_up Origin localhost
-			header_up Referer localhost
-		}
+bazarr.{$BASE_DOMAIN} {
+	reverse_proxy bazarr:6767 {
+		header_up Host localhost
+		header_up Origin localhost
+		header_up Referer localhost
 	}
 }
