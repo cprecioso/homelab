@@ -11,7 +11,7 @@
 	}
 }
 
-// Declare the wildcard domain so TLS uses it
+# Declare the wildcard domain so TLS uses it
 *.{$BASE_DOMAIN} {
 }
 
