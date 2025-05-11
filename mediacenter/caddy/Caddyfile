@@ -11,6 +11,9 @@
 	}
 }
 
+*.{$BASE_DOMAIN} {
+}
+
 plex.{$BASE_DOMAIN} {
 	reverse_proxy plex:32400 {
 		header_up Host localhost
