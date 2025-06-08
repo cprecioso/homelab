@@ -1,0 +1,15 @@
+[Unit]
+Description=Run Matter Server
+PartOf=hass.container
+
+[Container]
+Image=matter-server.image
+ContainerName=matter-server
+Volume=/opt/hass/matter-server/data:/data
+Network=host
+PodmanArgs=--privileged
+
+[Service]
+Restart=unless-stopped
+TimeoutStartSec=900
+TimeoutStopSec=70

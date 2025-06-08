@@ -1,0 +1,19 @@
+[Unit]
+Description=Run Home Assistant
+Wants=matter-server.container
+
+[Container]
+Image=hass.image
+ContainerName=hass
+Volume=/opt/hass/config:/config
+Environment=TZ=Europe/Madrid
+Network=host
+PodmanArgs=--privileged
+
+[Service]
+Restart=unless-stopped
+TimeoutStartSec=900
+TimeoutStopSec=70
+
+[Install]
+WantedBy=default.target
