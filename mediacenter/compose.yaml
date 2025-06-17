@@ -70,6 +70,16 @@ services:
       - "${BASE_FOLDER:?error}/config/bazarr:/config"
       - "${BASE_FOLDER:?error}/media:/media"
 
+  jackett:
+    image: lscr.io/linuxserver/jackett:0.22.2024
+    pull_policy: always
+    restart: always
+    expose:
+      - 9117
+    env_file: .env
+    volumes:
+      - "${BASE_FOLDER:?error}/config/jackett:/config"
+
   heimdall:
     image: lscr.io/linuxserver/heimdall:2.6.3
     pull_policy: always
