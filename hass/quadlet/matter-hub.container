@@ -18,3 +18,6 @@ TimeoutStartSec=900
 TimeoutStopSec=70
 # This systemd credential must be a dotenv file with HAMH_HOME_ASSISTANT_URL and HAMH_HOME_ASSISTANT_ACCESS_TOKEN
 LoadCredential=hass-matter-hub-connection
+
+[Install]
+WantedBy=hass.service
