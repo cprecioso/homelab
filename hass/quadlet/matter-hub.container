@@ -1,0 +1,20 @@
+[Unit]
+Description=Run Matter Hub
+PartOf=hass.container
+
+[Container]
+Image=matter-hub.image
+ContainerName=matter-hub
+Volume=/opt/hass/matter-hub/data:/data
+Network=host
+PodmanArgs=--privileged
+EnvironmentFile=%d/hass-matter-hub-connection
+Environment=HAMH_LOG_LEVEL=info
+Environment=HAMH_HTTP_PORT=8482
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+TimeoutStopSec=70
+# This systemd credential must be a dotenv file with HAMH_HOME_ASSISTANT_URL and HAMH_HOME_ASSISTANT_ACCESS_TOKEN
+LoadCredential=hass-matter-hub-connection

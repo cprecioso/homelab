@@ -1,0 +1,5 @@
+[Unit]
+Description=Fetch Matter Hub image
+
+[Image]
+Image=ghcr.io/t0bst4r/home-assistant-matter-hub:latest
