@@ -59,17 +59,6 @@ services:
     volumes:
       - "${BASE_FOLDER:?error}/config/prowlarr:/config"
 
-  bazarr:
-    image: lscr.io/linuxserver/bazarr:1.5.2
-    pull_policy: always
-    restart: always
-    expose:
-      - 6767
-    env_file: .env
-    volumes:
-      - "${BASE_FOLDER:?error}/config/bazarr:/config"
-      - "${BASE_FOLDER:?error}/media:/media"
-
   jackett:
     image: lscr.io/linuxserver/jackett:0.22.2024
     pull_policy: always

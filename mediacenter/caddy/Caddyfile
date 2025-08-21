@@ -58,14 +58,6 @@ prowlarr.{$BASE_DOMAIN} {
 	}
 }
 
-bazarr.{$BASE_DOMAIN} {
-	reverse_proxy bazarr:6767 {
-		header_up Host localhost
-		header_up Origin localhost
-		header_up Referer localhost
-	}
-}
-
 jackett.{$BASE_DOMAIN} {
 	reverse_proxy jackett:9117 {
 		header_up Host localhost
