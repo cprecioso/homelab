@@ -98,9 +98,9 @@ services:
     pull_policy: always
     restart: always
     environment:
-      CF_API_TOKEN: ${CF_API_TOKEN:?error}
       BASE_DOMAIN: ${BASE_DOMAIN:?error}
-      ACME_EMAIL: ${ACME_EMAIL:?error}
+      ACME_EAB_KEY_ID: ${ACME_EAB_KEY_ID:?error}
+      ACME_EAB_MAC_KEY: ${ACME_EAB_MAC_KEY:?error}
     env_file:
       - .env
     ports:
