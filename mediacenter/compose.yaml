@@ -107,3 +107,16 @@ services:
     expose:
       - 8191
     env_file: .env
+
+  recylarr:
+    image: ghcr.io/recyclarr/recyclarr:7.4
+    pull_policy: always
+    restart: always
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - RECYCLARR_CREATE_CONFIG=1
+    env_file: .env
+    user: "1000:1000"
+    volumes:
+      - "${BASE_FOLDER:?error}/config/recyclarr/config:/config"
