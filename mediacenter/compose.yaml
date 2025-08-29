@@ -113,10 +113,8 @@ services:
     pull_policy: always
     restart: always
     environment:
-      - PUID=1000
-      - PGID=1000
       - RECYCLARR_CREATE_CONFIG=1
     env_file: .env
-    user: "1000:1000"
+    user: "0:0"
     volumes:
       - "${BASE_FOLDER:?error}/config/recyclarr/config:/config"
