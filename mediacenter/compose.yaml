@@ -112,8 +112,6 @@ services:
     image: ghcr.io/recyclarr/recyclarr:7.4
     pull_policy: always
     restart: always
-    environment:
-      - RECYCLARR_CREATE_CONFIG=1
     env_file: .env
     user: "0:0"
     volumes:
