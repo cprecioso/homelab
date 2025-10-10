@@ -1,0 +1,12 @@
+[Unit]
+Description=Tailscale Set Config
+After=network-online.target tailscaled.service
+Wants=network-online.target tailscaled.service
+
+[Service]
+Type=oneshot
+ImportCredential=tailscale-authkey
+ExecStart=/bin/sh -c 'tailscale up --advertise-exit-node --ssh --auth-key=$(cat ${CREDENTIALS_DIRECTORY}/tailscale-authkey)'
+
+[Install]
+WantedBy=multi-user.target

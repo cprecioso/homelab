@@ -15,3 +15,6 @@ RUN systemctl enable cockpit.socket
 
 COPY --link ./hass/quadlet/* /etc/containers/systemd/
 COPY --link ./portainer/quadlet/* /etc/containers/systemd/
+
+COPY --link ./tailscale/systemd/* /etc/systemd/system/
+RUN systemctl enable taiscale-config.service
