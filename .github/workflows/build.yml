@@ -27,6 +27,8 @@ jobs:
         image:
           - context: "./mediacenter/caddy"
             name: "${{ github.repository }}-caddy"
+          - context: "./system"
+            name: "${{ github.repository }}-system"
 
     steps:
       - uses: actions/checkout@v5
