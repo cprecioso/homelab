@@ -16,8 +16,8 @@ jobs:
     strategy:
       matrix:
         image:
-          - "${{ github.repository }}-caddy"
-          - "${{ github.repository }}-system"
+          - homelab-caddy
+          - homelab-system
 
     name: Prune old versions of ${{ matrix.image }}
 
