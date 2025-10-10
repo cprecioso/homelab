@@ -30,6 +30,8 @@ jobs:
           - context: "./system"
             name: "${{ github.repository }}-system"
 
+    name: Build and push ${{ matrix.image.name }}
+
     steps:
       - uses: actions/checkout@v5
 
