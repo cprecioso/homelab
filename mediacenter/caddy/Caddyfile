@@ -42,8 +42,8 @@ radarr.{$BASE_DOMAIN} {
 	}
 }
 
-deluge.{$BASE_DOMAIN} {
-	reverse_proxy deluge:8112 {
+qbittorrent.{$BASE_DOMAIN} {
+	reverse_proxy qbittorrent:8080 {
 		header_up Host localhost
 		header_up Origin localhost
 		header_up Referer localhost
