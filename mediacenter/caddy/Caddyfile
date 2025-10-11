@@ -7,11 +7,7 @@
 }
 
 {$BASE_DOMAIN} {
-	reverse_proxy heimdall:80 {
-		header_up Host localhost
-		header_up Origin localhost
-		header_up Referer localhost
-	}
+	reverse_proxy heimdall:80
 }
 
 # Declare the wildcard domain so TLS uses it
@@ -19,49 +15,25 @@
 }
 
 plex.{$BASE_DOMAIN} {
-	reverse_proxy plex:32400 {
-		header_up Host localhost
-		header_up Origin localhost
-		header_up Referer localhost
-	}
+	reverse_proxy plex:32400
 }
 
 sonarr.{$BASE_DOMAIN} {
-	reverse_proxy sonarr:8989 {
-		header_up Host localhost
-		header_up Origin localhost
-		header_up Referer localhost
-	}
+	reverse_proxy sonarr:8989
 }
 
 radarr.{$BASE_DOMAIN} {
-	reverse_proxy radarr:7878 {
-		header_up Host localhost
-		header_up Origin localhost
-		header_up Referer localhost
-	}
+	reverse_proxy radarr:7878
 }
 
 qbittorrent.{$BASE_DOMAIN} {
-	reverse_proxy qbittorrent:443 {
-		header_up Host localhost
-		header_up Origin localhost
-		header_up Referer localhost
-	}
+	reverse_proxy qbittorrent:443
 }
 
 prowlarr.{$BASE_DOMAIN} {
-	reverse_proxy prowlarr:9696 {
-		header_up Host localhost
-		header_up Origin localhost
-		header_up Referer localhost
-	}
+	reverse_proxy prowlarr:9696
 }
 
 jackett.{$BASE_DOMAIN} {
-	reverse_proxy jackett:9117 {
-		header_up Host localhost
-		header_up Origin localhost
-		header_up Referer localhost
-	}
+	reverse_proxy jackett:9117
 }
