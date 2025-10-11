@@ -27,7 +27,7 @@ radarr.{$BASE_DOMAIN} {
 }
 
 qbittorrent.{$BASE_DOMAIN} {
-	reverse_proxy qbittorrent:443
+	reverse_proxy qbittorrent:8080
 }
 
 prowlarr.{$BASE_DOMAIN} {

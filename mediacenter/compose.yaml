@@ -40,13 +40,12 @@ services:
     pull_policy: always
     restart: always
     expose:
-      - 443
+      - 8080
     ports:
       - 6881:6881
       - 6881:6881/udp
     env_file: .env
     environment:
-      - WEBUI_PORT=443
       - TORRENTING_PORT=6881
     volumes:
       - "${BASE_FOLDER:?error}/config/qbittorrent:/config"
