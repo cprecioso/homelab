@@ -1,9 +1,9 @@
 {
-  acme_ca https://anchor.dev/acme
-  acme_eab {
-    key_id {$ACME_EAB_KEY_ID}
-    mac_key {$ACME_EAB_MAC_KEY}
-  }
+	acme_ca https://anchor.dev/acme
+	acme_eab {
+		key_id {$ACME_EAB_KEY_ID}
+		mac_key {$ACME_EAB_MAC_KEY}
+	}
 }
 
 {$BASE_DOMAIN} {
