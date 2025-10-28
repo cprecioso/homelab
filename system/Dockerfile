@@ -10,7 +10,17 @@ ADD https://pkgs.tailscale.com/stable/fedora/tailscale.repo /etc/yum.repos.d/tai
 RUN rpm-ostree install tailscale && ostree container commit
 RUN systemctl enable tailscaled
 
-RUN rpm-ostree install cockpit cockpit-files cockpit-networkmanager cockpit-ostree cockpit-podman cockpit-storaged && ostree container commit
+RUN rpm-ostree install \
+    cockpit \
+    cockpit-files \
+    cockpit-machines \
+    cockpit-networkmanager \
+    cockpit-ostree \
+    cockpit-podman \
+    cockpit-selinux \
+    cockpit-storaged \
+    cockpit-system \
+  && ostree container commit
 RUN systemctl enable cockpit.socket
 
 COPY --link ./hass/quadlet/* /etc/containers/systemd/
