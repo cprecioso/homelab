@@ -37,3 +37,7 @@ prowlarr.{$BASE_DOMAIN} {
 jackett.{$BASE_DOMAIN} {
 	reverse_proxy jackett:9117
 }
+
+profilarr.{$BASE_DOMAIN} {
+	reverse_proxy jackett:6868
+}
