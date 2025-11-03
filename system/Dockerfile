@@ -28,6 +28,6 @@ COPY --link ./portainer/quadlet/* /etc/containers/systemd/
 COPY --link ./tsidp/quadlet/* /etc/containers/systemd/
 
 COPY --link ./tailscale/systemd/* /etc/systemd/system/
-RUN systemctl enable taiscale-config.service
+RUN systemctl enable tailscale-config.service
 
 RUN systemctl enable podman-restart.service
