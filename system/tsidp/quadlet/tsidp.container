@@ -1,0 +1,17 @@
+[Unit]
+Description=Run tsidp
+Requires=podman.socket
+After=podman.socket
+
+[Container]
+Image=tsidp.image
+ContainerName=tsidp
+Volume=tsidp_data:/data
+
+[Service]
+Restart=unless-stopped
+TimeoutStartSec=900
+TimeoutStopSec=70
+
+[Install]
+WantedBy=default.target
