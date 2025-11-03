@@ -7,6 +7,10 @@ After=podman.socket
 Image=tsidp.image
 ContainerName=tsidp
 Volume=tsidp_data:/data
+Environment=TAILSCALE_USE_WIP_CODE=1
+Environment=TS_STATE_DIR=/data
+Environment=TS_HOSTNAME=idp
+Environment=TSIDP_ENABLE_STS=1
 
 [Service]
 Restart=unless-stopped
