@@ -1,7 +1,7 @@
 [Unit]
 Description=Run tsidp
-Requires=podman.socket
-After=podman.socket
+Requires=podman.socket tailscaled.service
+After=podman.socket tailscaled.service
 
 [Container]
 Image=tsidp.image
