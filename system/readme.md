@@ -1,6 +1,6 @@
 ## Installation
 
-On an `rpm-ostree` based system, do the following:
+On an `rpm-ostree`/`bootc` based system, do the following:
 
 1. Write the `/etc/credstore/tailscale-authkey` file:
 
@@ -11,8 +11,7 @@ On an `rpm-ostree` based system, do the following:
 2. Rebase to this system image:
 
    ```bash
-   rpm-ostree rebase ostree-image-signed:registry:ghcr.io/cprecioso/homelab-system:latest
-   systemctl reboot
+   bootc switch registry:ghcr.io/cprecioso/homelab-system:latest --apply
    ```
 
 3. Once Home Assistant has been set up, get an access token and write the

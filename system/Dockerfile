@@ -7,10 +7,10 @@ SELINUX=disabled
 EOF
 
 ADD https://pkgs.tailscale.com/stable/fedora/tailscale.repo /etc/yum.repos.d/tailscale.repo
-RUN rpm-ostree install tailscale && ostree container commit
+RUN dnf install -y tailscale && dnf clean all
 RUN systemctl enable tailscaled
 
-RUN rpm-ostree install \
+RUN dnf install -y \
     cockpit \
     cockpit-files \
     cockpit-machines \
@@ -20,7 +20,7 @@ RUN rpm-ostree install \
     cockpit-selinux \
     cockpit-storaged \
     cockpit-system \
-  && ostree container commit
+  && dnf clean all
 RUN systemctl enable cockpit.socket
 
 COPY --link ./hass/quadlet/* /etc/containers/systemd/
