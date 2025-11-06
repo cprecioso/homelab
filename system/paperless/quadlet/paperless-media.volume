@@ -3,7 +3,4 @@ Requires=rclone.socket
 
 [Volume]
 Driver=rclone
-Options=remote=paperless-backend:/media
-Options=allow_other=true
-Options=vfs_cache_mode=full
-Options=poll_interval=0
+PodmanArgs=--opt remote=paperless-backend:/data --opt allow_other=true --opt vfs_cache_mode=full --opt poll_interval=0
