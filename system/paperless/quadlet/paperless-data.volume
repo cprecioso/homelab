@@ -1,0 +1,9 @@
+[Unit]
+Requires=rclone.socket
+
+[Volume]
+Driver=rclone
+Options=remote=paperless-backend:/data
+Options=allow_other=true
+Options=vfs_cache_mode=full
+Options=poll_interval=0

@@ -1,0 +1,7 @@
+[Container]
+Exec=gotenberg --chromium-disable-javascript=true --chromium-allow-list=file:///tmp/.*
+Image=paperless-gotenberg.image
+Pod=paperless.pod
+
+[Service]
+Restart=always

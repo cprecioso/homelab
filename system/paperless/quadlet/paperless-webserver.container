@@ -1,0 +1,17 @@
+[Unit]
+Requires=broker.service gotenberg.service tika.service
+After=broker.service gotenberg.service tika.service
+
+[Container]
+Environment=PAPERLESS_REDIS=redis://broker:6379
+Environment=PAPERLESS_TIKA_ENABLED=1
+Environment=PAPERLESS_TIKA_GOTENBERG_ENDPOINT=http://gotenberg:3000
+Environment=PAPERLESS_TIKA_ENDPOINT=http://tika:9998
+EnvironmentFile=docker-compose.env
+Image=paperless-webserver.image
+Pod=paperless.pod
+Volume=paperless-data.volume:/usr/src/paperless/data
+Volume=paperless-media.volume:/usr/src/paperless/media
+
+[Service]
+Restart=always

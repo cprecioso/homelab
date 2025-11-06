@@ -45,3 +45,4 @@ COPY --link ./rclone/containers.conf.d/* /etc/containers/containers.conf.d/
 COPY --link ./hass/quadlet/* /etc/containers/systemd/
 COPY --link ./portainer/quadlet/* /etc/containers/systemd/
 COPY --link ./tsidp/quadlet/* /etc/containers/systemd/
+COPY --link ./paperless/quadlet/* /etc/containers/systemd/

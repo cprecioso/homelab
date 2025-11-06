@@ -1,0 +1,6 @@
+[Container]
+Image=paperless-broker.image
+Pod=paperless.pod
+
+[Service]
+Restart=always

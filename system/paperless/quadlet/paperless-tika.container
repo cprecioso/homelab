@@ -1,0 +1,6 @@
+[Container]
+Image=paperless-tika.image
+Pod=paperless.pod
+
+[Service]
+Restart=always
