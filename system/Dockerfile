@@ -8,7 +8,7 @@ SELINUX=disabled
 EOF
 
 # Replace Docker with Podman
-RUN dnf uninstall -y docker-cli moby-engine && dnf clean all
+RUN dnf remove -y docker-cli moby-engine && dnf clean all
 RUN dnf install -y podman-docker && dnf clean all
 RUN systemctl enable podman-restart.service
 
