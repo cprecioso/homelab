@@ -35,6 +35,12 @@ RUN dnf install -y \
   && dnf clean all
 RUN systemctl enable cockpit.socket
 
+# Add Rclone and its plugin for Podman
+RUN dnf install -y rclone fuse && dnf clean all
+COPY --link ./rclone/systemd/* /etc/systemd/system/
+RUN systemctl enable podman-volume-rclone.socket
+COPY --link ./rclone/containers.conf.d/* /etc/containers/containers.conf.d/
+
 # Copy quadlets
 COPY --link ./hass/quadlet/* /etc/containers/systemd/
 COPY --link ./portainer/quadlet/* /etc/containers/systemd/

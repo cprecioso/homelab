@@ -1,0 +1,19 @@
+[Unit]
+Description=Podman Volume Plugin for rclone
+Requires=podman.socket
+Before=podman.service
+After=network.target
+Requires=podman-volume-rclone.socket
+After=podman-volume-rclone.socket
+
+[Service]
+ExecStart=/usr/bin/rclone serve docker
+ExecStartPre=/bin/mkdir -p /var/lib/podman-volumes/rclone
+ExecStartPre=/bin/mkdir -p /var/lib/podman-plugins/rclone/config
+ExecStartPre=/bin/mkdir -p /var/lib/podman-plugins/rclone/cache
+Environment=RCLONE_CONFIG=/var/lib/podman-plugins/rclone/config/rclone.conf
+Environment=RCLONE_CACHE_DIR=/var/lib/podman-plugins/rclone/cache
+Environment=RCLONE_VERBOSE=1
+
+[Install]
+WantedBy=multi-user.target
