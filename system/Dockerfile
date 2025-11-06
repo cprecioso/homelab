@@ -2,14 +2,26 @@
 
 FROM quay.io/fedora/fedora-coreos:stable AS base
 
+# Disable SELinux
 COPY <<EOF /etc/selinux/config
 SELINUX=disabled
 EOF
 
+# Replace Docker with Podman
+RUN dnf uninstall -y docker-cli moby-engine && dnf clean all
+RUN dnf install -y podman-docker && dnf clean all
+RUN systemctl enable podman-restart.service
+
+# Install Tailscale
 ADD https://pkgs.tailscale.com/stable/fedora/tailscale.repo /etc/yum.repos.d/tailscale.repo
 RUN dnf install -y tailscale && dnf clean all
 RUN systemctl enable tailscaled
 
+# Add Tailscale configuration unit
+COPY --link ./tailscale/systemd/* /etc/systemd/system/
+RUN systemctl enable tailscale-config.service
+
+# Install Cockpit and plugins
 RUN dnf install -y \
     cockpit \
     cockpit-files \
@@ -23,11 +35,7 @@ RUN dnf install -y \
   && dnf clean all
 RUN systemctl enable cockpit.socket
 
+# Copy quadlets
 COPY --link ./hass/quadlet/* /etc/containers/systemd/
 COPY --link ./portainer/quadlet/* /etc/containers/systemd/
 COPY --link ./tsidp/quadlet/* /etc/containers/systemd/
-
-COPY --link ./tailscale/systemd/* /etc/systemd/system/
-RUN systemctl enable tailscale-config.service
-
-RUN systemctl enable podman-restart.service
