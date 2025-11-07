@@ -3,10 +3,10 @@ Requires=paperless-broker.service paperless-gotenberg.service paperless-tika.ser
 After=paperless-broker.service paperless-gotenberg.service paperless-tika.service
 
 [Container]
-Environment=PAPERLESS_REDIS=redis://broker:6379
+Environment=PAPERLESS_REDIS=redis://localhost:6379
 Environment=PAPERLESS_TIKA_ENABLED=1
-Environment=PAPERLESS_TIKA_GOTENBERG_ENDPOINT=http://gotenberg:3000
-Environment=PAPERLESS_TIKA_ENDPOINT=http://tika:9998
+Environment=PAPERLESS_TIKA_GOTENBERG_ENDPOINT=http://localhost:3000
+Environment=PAPERLESS_TIKA_ENDPOINT=http://localhost:9998
 Environment=PAPERLESS_CONSUMER_DISABLE=1
 Environment=PAPERLESS_TIME_ZONE=Europe/Madrid
 Environment=PAPERLESS_OCR_LANGUAGE=spa
