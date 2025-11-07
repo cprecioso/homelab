@@ -4,4 +4,4 @@ Image=paperless-gotenberg.image
 Pod=paperless.pod
 
 [Service]
-Restart=always
+Restart=unless-stopped
