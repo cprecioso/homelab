@@ -7,7 +7,9 @@ Environment=PAPERLESS_REDIS=redis://broker:6379
 Environment=PAPERLESS_TIKA_ENABLED=1
 Environment=PAPERLESS_TIKA_GOTENBERG_ENDPOINT=http://gotenberg:3000
 Environment=PAPERLESS_TIKA_ENDPOINT=http://tika:9998
-EnvironmentFile=docker-compose.env
+Environment=PAPERLESS_TIME_ZONE=Europe/Madrid
+Environment=PAPERLESS_OCR_LANGUAGE=spa
+Environment=PAPERLESS_OCR_LANGUAGES=eng nld cat
 Image=paperless-webserver.image
 Pod=paperless.pod
 Volume=paperless-data.volume:/usr/src/paperless/data
