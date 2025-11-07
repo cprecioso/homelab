@@ -1,5 +1,5 @@
 [Unit]
-Requires=rclone.socket
+Requires=podman-volume-rclone.socket
 
 [Volume]
 Driver=rclone
