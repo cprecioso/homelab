@@ -1,7 +1,5 @@
 [Unit]
 Description=Run Portainer
-Requires=podman.socket
-After=podman.socket
 
 [Container]
 Image=portainer.image
