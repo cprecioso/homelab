@@ -1,6 +1,6 @@
 [Unit]
-Requires=broker.service gotenberg.service tika.service
-After=broker.service gotenberg.service tika.service
+Requires=paperless-broker.service paperless-gotenberg.service paperless-tika.service
+After=paperless-broker.service paperless-gotenberg.service paperless-tika.service
 
 [Container]
 Environment=PAPERLESS_REDIS=redis://broker:6379
