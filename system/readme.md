@@ -8,13 +8,18 @@ On an `rpm-ostree`/`bootc` based system, do the following:
    tskey-auth-xxxxxx
    ```
 
-2. Rebase to this system image:
+2. Create an [rclone](https://rclone.org/) config file at
+   `/etc/credstore/rclone-podman.conf`. It should have at least one remote
+   called `paperless-backend` configured to point to your desired backend
+   storage for Paperless-ngx data.
+
+3. Rebase to this system image:
 
    ```bash
    bootc switch registry:ghcr.io/cprecioso/homelab-system:latest --apply
    ```
 
-3. Once Home Assistant has been set up, get an access token and write the
+4. Once Home Assistant has been set up, get an access token and write the
    `/etc/credstore/hass-matter-hub-connection`
 
    ```
@@ -22,7 +27,7 @@ On an `rpm-ostree`/`bootc` based system, do the following:
    HAMH_HOME_ASSISTANT_ACCESS_TOKEN=mytoken
    ```
 
-4. Reboot the system:
+5. Reboot the system:
 
    ```bash
    systemctl reboot

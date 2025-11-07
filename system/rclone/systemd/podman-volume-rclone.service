@@ -11,9 +11,10 @@ ExecStart=/usr/bin/rclone serve docker
 ExecStartPre=/bin/mkdir -p /var/lib/podman-volumes/rclone
 ExecStartPre=/bin/mkdir -p /var/lib/podman-plugins/rclone/config
 ExecStartPre=/bin/mkdir -p /var/lib/podman-plugins/rclone/cache
-Environment=RCLONE_CONFIG=/var/lib/podman-plugins/rclone/config/rclone.conf
+Environment=RCLONE_CONFIG=%d/rclone-podman.conf
 Environment=RCLONE_CACHE_DIR=/var/lib/podman-plugins/rclone/cache
 Environment=RCLONE_VERBOSE=1
+LoadCredential=rclone-podman.conf
 
 [Install]
 WantedBy=multi-user.target
