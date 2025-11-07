@@ -1,2 +1,5 @@
 [Pod]
 PublishPort=8023:8000
+
+[Install]
+WantedBy=default.target
