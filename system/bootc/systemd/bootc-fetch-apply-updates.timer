@@ -1,0 +1,11 @@
+[Unit]
+Description=Apply bootc updates
+Documentation=man:bootc(8)
+ConditionPathExists=/run/ostree-booted
+
+[Timer]
+# At 5am every two days
+OnCalendar=*-*-01/2 05:00:00
+
+[Install]
+WantedBy=timers.target

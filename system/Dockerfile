@@ -46,3 +46,7 @@ COPY --link ./hass/quadlet/* /etc/containers/systemd/
 COPY --link ./portainer/quadlet/* /etc/containers/systemd/
 COPY --link ./tsidp/quadlet/* /etc/containers/systemd/
 COPY --link ./paperless/quadlet/* /etc/containers/systemd/
+
+# Enable bootc automatic updates
+COPY --link ./bootc/systemd/* /etc/systemd/system/
+RUN systemctl enable bootc-fetch-apply-updates.timer
