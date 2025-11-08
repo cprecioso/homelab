@@ -21,6 +21,10 @@ RUN systemctl enable tailscaled
 COPY --link ./tailscale/systemd/* /etc/systemd/system/
 RUN systemctl enable tailscale-config.service
 
+# Allow IP forwarding for Tailscale
+COPY --link ./tailscale/ip-forwarding.conf /etc/sysctl.d/99-tailscale.conf
+RUN sysctl -p /etc/sysctl.d/99-tailscale.conf
+
 # Install Cockpit and plugins
 RUN dnf install -y \
     cockpit \
