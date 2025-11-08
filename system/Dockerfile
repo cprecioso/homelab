@@ -7,6 +7,8 @@ COPY <<EOF /etc/selinux/config
 SELINUX=disabled
 EOF
 
+RUN dnf install -y screen && dnf clean all
+
 # Replace Docker with Podman
 RUN dnf remove -y docker-cli moby-engine && dnf clean all
 RUN dnf install -y podman-docker && dnf clean all
