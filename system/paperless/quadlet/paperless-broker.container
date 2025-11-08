@@ -3,4 +3,4 @@ Image=paperless-broker.image
 Pod=paperless.pod
 
 [Service]
-Restart=unless-stopped
+Restart=always

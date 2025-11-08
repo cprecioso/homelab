@@ -14,4 +14,4 @@ Volume=paperless-data.volume:/usr/src/paperless/data
 Volume=paperless-media.volume:/usr/src/paperless/media
 
 [Service]
-Restart=unless-stopped
+Restart=always

@@ -2,7 +2,7 @@
 PublishPort=8023:8000
 
 [Service]
-Restart=unless-stopped
+Restart=always
 
 [Install]
 WantedBy=default.target

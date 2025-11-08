@@ -13,7 +13,7 @@ Environment=TS_HOSTNAME=idp
 Environment=TSIDP_ENABLE_STS=1
 
 [Service]
-Restart=unless-stopped
+Restart=always
 TimeoutStartSec=900
 TimeoutStopSec=70
 

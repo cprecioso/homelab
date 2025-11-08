@@ -10,7 +10,7 @@ PublishPort=8000:8000
 PublishPort=9443:9443
 
 [Service]
-Restart=unless-stopped
+Restart=always
 TimeoutStartSec=900
 TimeoutStopSec=70
 
