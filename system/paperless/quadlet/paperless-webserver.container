@@ -14,6 +14,7 @@ LoadCredential=paperless-pdf-passwords
 Image=paperless-webserver.image
 Pod=paperless.pod
 Volume=paperless-data.volume:/usr/src/paperless/data
+Volume=paperless-media.volume:/usr/src/paperless/media
 Volume=/opt/paperless/pre_consume:/opt/paperless/pre_consume:ro
 
 
