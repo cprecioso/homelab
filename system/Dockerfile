@@ -52,6 +52,9 @@ COPY --link ./portainer/quadlet/* /etc/containers/systemd/
 COPY --link ./tsidp/quadlet/* /etc/containers/systemd/
 COPY --link ./paperless/quadlet/* /etc/containers/systemd/
 
+# Copy extra Paperless scripts
+COPY --link ./paperless/extra/pre_consume /opt/paperless/pre_consume
+
 # Enable bootc automatic updates
 COPY --link ./bootc/systemd/* /etc/systemd/system/
 RUN systemctl enable bootc-fetch-apply-updates.timer
