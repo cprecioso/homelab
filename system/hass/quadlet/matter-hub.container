@@ -5,7 +5,7 @@ PartOf=hass.container
 [Container]
 Image=matter-hub.image
 ContainerName=matter-hub
-Volume=/opt/hass/matter-hub/data:/data
+Volume=/var/opt/hass/matter-hub/data:/data
 Network=host
 PodmanArgs=--privileged
 EnvironmentFile=%d/hass-matter-hub-connection

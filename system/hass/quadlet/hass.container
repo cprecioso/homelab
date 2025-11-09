@@ -5,7 +5,7 @@ Wants=matter-server.container
 [Container]
 Image=hass.image
 ContainerName=hass
-Volume=/opt/hass/config:/config
+Volume=/var/opt/hass/config:/config
 Environment=TZ=Europe/Madrid
 Network=host
 PodmanArgs=--privileged
