@@ -103,7 +103,7 @@ services:
       - "${BASE_FOLDER:?error}/config/caddy/config:/config"
 
   flaresolverr:
-    image: ghcr.io/flaresolverr/flaresolverr:v3.4.4
+    image: ghcr.io/flaresolverr/flaresolverr:v3.4.5
     pull_policy: always
     restart: always
     expose:
