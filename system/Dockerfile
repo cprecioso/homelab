@@ -7,7 +7,8 @@ COPY <<EOF /etc/selinux/config
 SELINUX=disabled
 EOF
 
-RUN dnf install -y screen && dnf clean all
+# Utility programs
+RUN dnf install -y screen ncdu && dnf clean all
 
 # Replace Docker with Podman
 RUN dnf remove -y docker-cli moby-engine && dnf clean all
