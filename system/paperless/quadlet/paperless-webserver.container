@@ -15,6 +15,7 @@ Pod=paperless.pod
 Volume=/var/mnt/paperless/data:/usr/src/paperless/data
 Volume=/var/mnt/paperless/media:/usr/src/paperless/media
 Volume=/opt/paperless/pre_consume:/opt/paperless/pre_consume:ro
+Volume=%d/paperless-pdf-passwords:%d/paperless-pdf-passwords:ro
 
 [Service]
 Restart=always
