@@ -50,7 +50,8 @@ COPY --link ./portainer/quadlet/* /etc/containers/systemd/
 COPY --link ./tsidp/quadlet/* /etc/containers/systemd/
 COPY --link ./paperless/quadlet/* /etc/containers/systemd/
 
-# Copy extra Paperless scripts
+# Copy extra Paperless files
+COPY --link ./paperless/systemd/* /etc/systemd/system/
 COPY --link ./paperless/extra/pre_consume /opt/paperless/pre_consume
 
 # Enable bootc automatic updates
