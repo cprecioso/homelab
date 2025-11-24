@@ -1,6 +1,9 @@
 [Unit]
-Requires=podman-volume-rclone.socket
+Requires=network-online.target
 
 [Volume]
-Driver=rclone
-PodmanArgs=--opt remote=paperless-backend:/data --opt allow_other=true --opt vfs_cache_mode=full --opt poll_interval=0
+Driver=local
+Type=rclone
+Device=paperless-backend:/media
+Options=rw,_netdev,allow_other,args2env,vfs-cache-mode=full,poll-interval=0,config=%d/rclone-podman.conf,cache-dir=%C/rclone-paperless
+LoadCredential=rclone-podman.conf

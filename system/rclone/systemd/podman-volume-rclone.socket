@@ -1,8 +1,0 @@
-[Unit]
-Description=Podman Volume Plugin for rclone
-
-[Socket]
-ListenStream=/run/podman/plugins/rclone.sock
-
-[Install]
-WantedBy=sockets.target
