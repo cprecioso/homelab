@@ -8,15 +8,10 @@ Environment=PAPERLESS_TIKA_ENABLED=1
 Environment=PAPERLESS_TIKA_GOTENBERG_ENDPOINT=http://localhost:3000
 Environment=PAPERLESS_TIKA_ENDPOINT=http://localhost:9998
 Environment=PAPERLESS_CONSUMER_DISABLE=1
-Environment=PAPERLESS_PRE_CONSUME_SCRIPT=/opt/paperless/pre_consume/decrypt-pdf.sh
-Environment=DECRYPTION_PASSWORDS_FILE=%d/paperless-pdf-passwords
 Image=paperless-webserver.image
 Pod=paperless.pod
 Volume=/var/mnt/paperless/data:/usr/src/paperless/data
 Volume=/var/mnt/paperless/media:/usr/src/paperless/media
-Volume=/opt/paperless/pre_consume:/opt/paperless/pre_consume:ro
-Volume=%d/paperless-pdf-passwords:%d/paperless-pdf-passwords:ro
 
 [Service]
 Restart=always
-LoadCredential=paperless-pdf-passwords
