@@ -8,7 +8,7 @@ SELINUX=disabled
 EOF
 
 # Utility programs
-RUN dnf install -y screen ncdu && dnf clean all
+RUN dnf install -y screen ncdu glibc-langpack-en glibc-langpack-es && dnf clean all
 
 # Replace Docker with Podman
 RUN dnf remove -y docker-cli moby-engine && dnf clean all
