@@ -29,15 +29,15 @@ COPY --link ./tailscale/ip-forwarding.conf /etc/sysctl.d/99-tailscale.conf
 
 # Install Cockpit and plugins
 RUN dnf install -y \
-    cockpit \
-    cockpit-files \
-    cockpit-machines \
-    cockpit-networkmanager \
-    cockpit-ostree \
-    cockpit-podman \
-    cockpit-selinux \
-    cockpit-storaged \
-    cockpit-system \
+  cockpit \
+  cockpit-files \
+  cockpit-machines \
+  cockpit-networkmanager \
+  cockpit-ostree \
+  cockpit-podman \
+  cockpit-selinux \
+  cockpit-storaged \
+  cockpit-system \
   && dnf clean all
 RUN systemctl enable cockpit.socket
 
