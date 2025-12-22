@@ -85,7 +85,7 @@ services:
       - "${BASE_FOLDER:?error}/config/heimdall:/config"
 
   caddy:
-    image: docker.io/library/caddy:2.10.2-alpine
+    image: ghcr.io/cprecioso/homelab-caddy:latest
     pull_policy: always
     restart: always
     environment:
@@ -99,7 +99,6 @@ services:
       - "443:443"
       - "443:443/udp"
     volumes:
-      - ./caddy:/etc/caddy:ro
       - "${BASE_FOLDER:?error}/config/caddy/data:/data"
       - "${BASE_FOLDER:?error}/config/caddy/config:/config"
 

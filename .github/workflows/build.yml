@@ -26,6 +26,8 @@ jobs:
     strategy:
       matrix:
         image:
+          - context: "./mediacenter/caddy"
+            name: "${{ github.repository }}-caddy"
           - context: "./system"
             name: "${{ github.repository }}-system"
 
