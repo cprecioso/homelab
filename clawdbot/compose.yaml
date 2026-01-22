@@ -2,7 +2,7 @@ services:
   clawdbot-gateway:
     pull_policy: build
     image: clawdbot
-    build: ./image
+    build: https://github.com/clawdbot/clawdbot.git
     environment:
       HOME: /home/node
       TERM: xterm-256color
