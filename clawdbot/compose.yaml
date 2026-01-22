@@ -2,9 +2,7 @@ services:
   clawdbot-gateway:
     pull_policy: build
     image: clawdbot
-    build: &clawdbot-build
-      context: /dev/null
-      dockerfile: ./Containerfile
+    build: ./image
     environment:
       HOME: /home/node
       TERM: xterm-256color
