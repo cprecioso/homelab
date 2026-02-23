@@ -16,7 +16,6 @@ jobs:
     strategy:
       matrix:
         image:
-          - homelab-caddy
           - homelab-system
 
     name: Prune old versions of ${{ matrix.image }}
