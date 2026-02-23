@@ -2,4 +2,4 @@
 Description=Fetch Matter Server image
 
 [Image]
-Image=ghcr.io/home-assistant-libs/python-matter-server:stable
+Image=ghcr.io/home-assistant-libs/python-matter-server:8.1

@@ -2,4 +2,4 @@
 Description=Fetch Home Assistant image
 
 [Image]
-Image=ghcr.io/home-assistant/home-assistant:stable
+Image=ghcr.io/home-assistant/home-assistant:2026.2

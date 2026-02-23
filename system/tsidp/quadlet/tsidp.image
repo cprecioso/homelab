@@ -2,4 +2,4 @@
 Description=Fetch tsidp image
 
 [Image]
-Image=ghcr.io/tailscale/tsidp:latest
+Image=ghcr.io/tailscale/tsidp:0.0.12

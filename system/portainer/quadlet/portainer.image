@@ -2,4 +2,4 @@
 Description=Fetch Portainer image
 
 [Image]
-Image=docker.io/portainer/portainer-ce:latest
+Image=docker.io/portainer/portainer-ce:2.38.1
