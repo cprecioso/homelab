@@ -27,6 +27,10 @@ RUN systemctl enable tailscale-config.service
 # Allow IP forwarding for Tailscale
 COPY --link ./tailscale/ip-forwarding.conf /etc/sysctl.d/99-tailscale.conf
 
+# Workaround for error when installing Cockpit
+# @TODO https://github.com/coreos/fedora-coreos-tracker/issues/572
+RUN rpm-ostree override remove nfs-utils-coreos --install nfs-utils
+
 # Install Cockpit and plugins
 RUN dnf install -y \
   cockpit \
