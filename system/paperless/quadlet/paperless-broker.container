@@ -1,3 +1,6 @@
+[Unit]
+PartOf=paperless-webserver.service
+
 [Container]
 Image=paperless-broker.image
 Pod=paperless.pod

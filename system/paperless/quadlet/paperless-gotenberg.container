@@ -1,3 +1,6 @@
+[Unit]
+PartOf=paperless-webserver.service
+
 [Container]
 Exec=gotenberg --chromium-disable-javascript=true --chromium-allow-list=file:///tmp/.*
 Image=paperless-gotenberg.image
