@@ -60,3 +60,7 @@ COPY --link ./paperless/systemd/* /etc/systemd/system/
 # Enable bootc automatic updates
 COPY --link ./bootc/systemd/* /etc/systemd/system/
 RUN systemctl enable bootc-fetch-apply-updates.timer
+
+# Enable daily Podman image pruning
+COPY --link ./podman/systemd/* /etc/systemd/system/
+RUN systemctl enable podman-image-prune.timer

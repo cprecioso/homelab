@@ -1,0 +1,8 @@
+[Unit]
+Description=Prune unused Podman images
+Requires=podman.socket
+After=podman.socket
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/podman image prune --all --force
