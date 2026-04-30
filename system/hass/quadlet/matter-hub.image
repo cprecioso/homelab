@@ -2,4 +2,4 @@
 Description=Fetch Matter Hub image
 
 [Image]
-Image=ghcr.io/riddix/home-assistant-matter-hub:2.0.40
+Image=ghcr.io/riddix/home-assistant-matter-hub:2.0.43
