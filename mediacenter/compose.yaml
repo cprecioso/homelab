@@ -85,9 +85,12 @@ services:
       - "${BASE_FOLDER:?error}/config/heimdall:/config"
 
   caddy:
+    image: docker.io/library/caddy:2.11.2-alpine
     pull_policy: build
-    build: ./caddy
     restart: always
+    configs:
+      - source: caddy_config
+        target: /etc/caddy/Caddyfile
     environment:
       BASE_DOMAIN: ${BASE_DOMAIN:?error}
       ACME_EAB_KEY_ID: ${ACME_EAB_KEY_ID:?error}
@@ -119,3 +122,7 @@ services:
     env_file: .env
     volumes:
       - "${BASE_FOLDER:?error}/config/profilarr/config:/config"
+
+configs:
+  caddy_config:
+    file: ./Caddyfile
