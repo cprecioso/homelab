@@ -58,3 +58,7 @@ RUN systemctl enable bootc-fetch-apply-updates.timer
 # Enable daily Podman image pruning
 COPY --link ./podman/systemd/* /etc/systemd/system/
 RUN systemctl enable podman-image-prune.timer
+
+# Install Claude
+COPY --link ./claude/claude-code.repo /etc/yum.repos.d/claude-code.repo
+RUN dnf install -y claude-code && dnf clean all
