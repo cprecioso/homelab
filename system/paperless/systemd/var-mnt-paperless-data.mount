@@ -6,5 +6,6 @@ After=network-online.target
 Type=rclone
 What=paperless-backend:data
 Where=/var/mnt/paperless/data
+SloppyOptions=true
 Options=rw,_netdev,allow_other,args2env,vfs-cache-mode=full,poll-interval=0,config=%d/rclone-podman.conf,cache-dir=%C/rclone-paperless
 LoadCredential=rclone-podman.conf
