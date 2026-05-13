@@ -3,9 +3,7 @@
 FROM quay.io/fedora/fedora-coreos:stable AS base
 
 # Disable SELinux
-COPY <<EOF /etc/selinux/config
-SELINUX=disabled
-EOF
+COPY --link ./selinux/selinux.conf /etc/selinux/config
 
 # Utility programs
 RUN dnf install -y screen ncdu glibc-langpack-en glibc-langpack-es && dnf clean all
