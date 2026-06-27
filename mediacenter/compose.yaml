@@ -124,4 +124,4 @@ services:
       ORIGIN: "https://profilarr.${BASE_DOMAIN:?error}"
     env_file: .env
     volumes:
-      - "${BASE_FOLDER:?error}/config/profilarr2/config:/config"
+      - "${BASE_FOLDER:?error}/config/profilarr/config:/config"
