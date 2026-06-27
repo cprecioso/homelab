@@ -41,7 +41,3 @@ jackett.{$BASE_DOMAIN} {
 profilarr.{$BASE_DOMAIN} {
 	reverse_proxy profilarr:6868
 }
-
-profilarr2.{$BASE_DOMAIN} {
-	reverse_proxy profilarr2:6868
-}

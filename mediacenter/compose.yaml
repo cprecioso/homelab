@@ -111,16 +111,6 @@ services:
     env_file: .env
 
   profilarr:
-    image: docker.io/santiagosayshey/profilarr:v1.1.5
-    pull_policy: always
-    restart: always
-    expose:
-      - 6868
-    env_file: .env
-    volumes:
-      - "${BASE_FOLDER:?error}/config/profilarr/config:/config"
-
-  profilarr2:
     image: ghcr.io/dictionarry-hub/profilarr:2.0.9
     pull_policy: always
     restart: always
