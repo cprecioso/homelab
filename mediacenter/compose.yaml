@@ -121,7 +121,7 @@ services:
       OIDC_DISCOVERY_URL: "${OIDC_DISCOVERY_URL:?error}"
       OIDC_CLIENT_ID: "${OIDC_CLIENT_ID:?error}"
       OIDC_CLIENT_SECRET: "${OIDC_CLIENT_SECRET:?error}"
-      ORIGIN: "https://profilarr2.${BASE_DOMAIN:?error}"
+      ORIGIN: "https://profilarr.${BASE_DOMAIN:?error}"
     env_file: .env
     volumes:
       - "${BASE_FOLDER:?error}/config/profilarr2/config:/config"
