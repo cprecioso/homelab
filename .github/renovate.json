@@ -6,5 +6,14 @@
     "schedule:weekends",
     ":maintainLockFilesWeekly"
   ],
-  "minimumReleaseAge": "7 days"
+  "minimumReleaseAge": "7 days",
+
+  "packageRules": [
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["lscr.io/linuxserver/qbittorrent"],
+      "allowedVersions": "!/^20\\./",
+      "description": "Ignore old Ubuntu-date versioning (e.g. 20.04.1) that linuxserver abandoned"
+    }
+  ]
 }
