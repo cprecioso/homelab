@@ -37,7 +37,7 @@ services:
       - "${BASE_FOLDER:?error}/media:/media"
 
   qbittorrent:
-    image: lscr.io/linuxserver/qbittorrent:5.2.2
+    image: lscr.io/linuxserver/qbittorrent:14.3.9
     pull_policy: always
     restart: always
     expose:
