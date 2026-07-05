@@ -1,6 +1,10 @@
 [Unit]
+# This ceremony is needed because otherwise this won't be classified as a network filesystem.
+DefaultDependencies=no
 Requires=network-online.target
-After=network-online.target
+After=network-online.target remote-fs-pre.target
+Before=remote-fs.target umount.target
+Conflicts=umount.target
 
 [Mount]
 Type=rclone
