@@ -1,0 +1,18 @@
+[Unit]
+Description=Run ESPHome Device Builder
+
+[Container]
+Image=esphome.image
+ContainerName=esphome
+Volume=/var/opt/hass/esphome/config:/config
+Environment=TZ=Europe/Madrid
+Network=host
+PodmanArgs=--privileged
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+TimeoutStopSec=70
+
+[Install]
+WantedBy=default.target
