@@ -53,7 +53,7 @@ jobs:
       - uses: docker/build-push-action@v7
         id: build-and-push
         with:
-          context: ${{ github.server_url }}/${{ github.repository }}.git#${{ github.sha }}:${{ matrix.image.context }}
+          context: "{{defaultContext}}:${{ matrix.image.context }}"
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
