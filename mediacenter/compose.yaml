@@ -1,6 +1,6 @@
 services:
   plex:
-    image: lscr.io/linuxserver/plex:1.43.2
+    image: lscr.io/linuxserver/plex:1.43.3
     pull_policy: always
     restart: always
     network_mode: host
@@ -26,7 +26,7 @@ services:
       - "${BASE_FOLDER:?error}/media:/media"
 
   radarr:
-    image: lscr.io/linuxserver/radarr:6.2.1
+    image: lscr.io/linuxserver/radarr:6.3.0
     pull_policy: always
     restart: always
     expose:
@@ -37,7 +37,7 @@ services:
       - "${BASE_FOLDER:?error}/media:/media"
 
   qbittorrent:
-    image: lscr.io/linuxserver/qbittorrent:5.2.2
+    image: lscr.io/linuxserver/qbittorrent:5.2.3
     pull_policy: always
     restart: always
     expose:
@@ -73,7 +73,7 @@ services:
       - "${BASE_FOLDER:?error}/config/jackett:/config"
 
   heimdall:
-    image: lscr.io/linuxserver/heimdall:2.7.6
+    image: lscr.io/linuxserver/heimdall:2.8.1
     pull_policy: always
     restart: always
     expose:
