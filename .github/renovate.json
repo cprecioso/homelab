@@ -6,5 +6,13 @@
     "schedule:weekends",
     ":maintainLockFilesWeekly"
   ],
-  "minimumReleaseAge": "7 days"
+  "minimumReleaseAge": "7 days",
+  "packageRules": [
+    {
+      "description": "Only track the Fedora CoreOS stable stream (3rd version field: 1=next, 2=testing, 3=stable). See https://github.com/coreos/fedora-coreos-tracker/blob/main/Design.md#version-numbers",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["quay.io/fedora/fedora-coreos"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.3\\.(?<patch>\\d+)$"
+    }
+  ]
 }
