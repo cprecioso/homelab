@@ -86,8 +86,8 @@ services:
       - "${BASE_FOLDER:?error}/config/heimdall:/config"
 
   caddy:
-    pull_policy: build
-    build: ./caddy
+    image: ghcr.io/cprecioso/homelab-caddy:latest
+    pull_policy: always
     restart: always
     environment:
       BASE_DOMAIN: ${BASE_DOMAIN:?error}
