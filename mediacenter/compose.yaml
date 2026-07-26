@@ -92,6 +92,7 @@ services:
     environment:
       BASE_DOMAIN: ${BASE_DOMAIN:?error}
       CF_API_TOKEN: ${CF_API_TOKEN:?error}
+      LE_EMAIL: ${LE_EMAIL:?error}
     env_file:
       - .env
     ports:
