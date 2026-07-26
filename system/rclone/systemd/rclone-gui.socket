@@ -1,0 +1,10 @@
+[Unit]
+Description=Socket for the Rclone web GUI
+
+[Socket]
+ListenStream=0.0.0.0:5572
+# rclone can't inherit a listening socket, so hand connections to the proxy instead.
+Service=rclone-gui-proxy.service
+
+[Install]
+WantedBy=sockets.target

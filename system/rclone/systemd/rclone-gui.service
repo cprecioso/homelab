@@ -1,0 +1,22 @@
+[Unit]
+Description=Rclone web GUI
+Wants=network-online.target
+After=network-online.target
+# Started on demand by rclone-gui-proxy.service, and torn down with it.
+StopWhenUnneeded=yes
+
+[Service]
+Type=exec
+LoadCredential=rclone-podman.conf
+CacheDirectory=rclone-gui
+ExecStart=/usr/bin/rclone rcd \
+  --config %d/rclone-podman.conf \
+  --cache-dir %C/rclone-gui \
+  --rc-addr 127.0.0.1:5573 \
+  --rc-no-auth \
+  --rc-web-gui \
+  --rc-web-gui-no-open-browser \
+  --rc-web-gui-no-check-update
+# rclone can't notify readiness, so wait until it accepts connections before the proxy dials it.
+ExecStartPost=/bin/sh -c 'until curl -so /dev/null http://127.0.0.1:5573/; do sleep 0.2; done'
+Restart=on-failure
