@@ -30,6 +30,8 @@ jobs:
         image:
           - context: "./system"
             name: "${{ github.repository }}-system"
+          - context: "./mediacenter/caddy"
+            name: "${{ github.repository }}-caddy"
 
     name: Build and push ${{ matrix.image.name }}
 
