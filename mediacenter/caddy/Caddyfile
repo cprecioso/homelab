@@ -1,9 +1,5 @@
-{
-	acme_ca https://anchor.dev/acme
-	acme_eab {
-		key_id {$ACME_EAB_KEY_ID}
-		mac_key {$ACME_EAB_MAC_KEY}
-	}
+tls {
+	dns cloudflare {env.CF_API_TOKEN}
 }
 
 {$BASE_DOMAIN} {
