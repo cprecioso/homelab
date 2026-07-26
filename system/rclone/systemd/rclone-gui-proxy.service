@@ -1,8 +1,0 @@
-[Unit]
-Description=Proxy connections to the Rclone web GUI
-Requires=rclone-gui.socket rclone-gui.service
-After=rclone-gui.socket rclone-gui.service
-
-[Service]
-ExecStart=/usr/lib/systemd/systemd-socket-proxyd --exit-idle-time=5min 127.0.0.1:5573
-PrivateTmp=yes
