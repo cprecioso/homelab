@@ -4,6 +4,7 @@ PartOf=paperless-webserver.service
 [Container]
 Image=paperless-broker.image
 Pod=paperless.pod
+Volume=paperless-broker-data.volume:/data
 
 [Service]
 Restart=always

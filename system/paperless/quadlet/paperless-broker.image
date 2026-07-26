@@ -1,2 +1,2 @@
 [Image]
-Image=docker.io/library/redis:8
+Image=docker.io/valkey/valkey:9-alpine
