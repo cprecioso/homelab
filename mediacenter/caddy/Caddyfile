@@ -1,6 +1,7 @@
 {
 	email {env.LE_EMAIL}
 	dns cloudflare {env.CF_API_TOKEN}
+	acme_dns cloudflare {$CF_API_TOKEN}
 }
 
 {$BASE_DOMAIN} {
