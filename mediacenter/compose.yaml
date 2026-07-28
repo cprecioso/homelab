@@ -63,7 +63,7 @@ services:
       - "${BASE_FOLDER:?error}/config/prowlarr:/config"
 
   jackett:
-    image: lscr.io/linuxserver/jackett:0.24.1226
+    image: lscr.io/linuxserver/jackett:0.24.2288
     pull_policy: always
     restart: always
     expose:
