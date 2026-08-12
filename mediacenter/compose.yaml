@@ -112,7 +112,7 @@ services:
     env_file: .env
 
   profilarr:
-    image: ghcr.io/dictionarry-hub/profilarr:2.0.9
+    image: ghcr.io/dictionarry-hub/profilarr:2.1.0
     pull_policy: always
     restart: always
     expose:
