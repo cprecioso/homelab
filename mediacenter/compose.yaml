@@ -73,7 +73,7 @@ services:
       - "${BASE_FOLDER:?error}/config/jackett:/config"
 
   heimdall:
-    image: lscr.io/linuxserver/heimdall:2.8.1
+    image: lscr.io/linuxserver/heimdall:2.8.2
     pull_policy: always
     restart: always
     expose:
@@ -112,7 +112,7 @@ services:
     env_file: .env
 
   profilarr:
-    image: ghcr.io/dictionarry-hub/profilarr:2.1.0
+    image: ghcr.io/dictionarry-hub/profilarr:2.2.0
     pull_policy: always
     restart: always
     expose:
