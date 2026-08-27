@@ -1,2 +1,2 @@
 [Image]
-Image=docker.io/apache/tika:2.5.0
+Image=docker.io/apache/tika:4.0.0
