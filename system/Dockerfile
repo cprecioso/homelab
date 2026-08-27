@@ -50,6 +50,10 @@ RUN dnf install -y \
   && dnf clean all
 RUN systemctl enable cockpit.socket
 
+# Add virtual machine support
+RUN dnf install -y qemu-kvm libvirt virt-install virt-manager && dnf clean all
+RUN systemctl enable libvirtd
+
 # Add Rclone and FUSE
 RUN dnf install -y rclone fuse && dnf clean all
 
