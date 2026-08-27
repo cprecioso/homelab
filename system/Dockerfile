@@ -1,6 +1,20 @@
 # syntax=docker/dockerfile:1
 
-FROM quay.io/fedora/fedora-coreos:44.20260802.3.1@sha256:af3ebad95f7f17771a79fc194edaa811e5eb2d2e489c49b6be03039bbe70440c
+FROM quay.io/fedora/fedora-coreos:44.20260802.3.1@sha256:af3ebad95f7f17771a79fc194edaa811e5eb2d2e489c49b6be03039bbe70440c AS base
+
+FROM base AS selinux-builder
+
+RUN dnf install -y selinux-policy-devel
+
+WORKDIR /work
+COPY --link ./selinux .
+RUN make -f /usr/share/selinux/devel/Makefile tailscaled.pp
+
+FROM base
+
+# SELinux
+RUN --mount=type=bind,from=selinux-builder,source=/work,target=/selinux-builder \
+  semodule -i /selinux-builder/*.pp
 
 # Utility programs
 RUN dnf install -y screen ncdu glibc-langpack-en glibc-langpack-es && dnf clean all
