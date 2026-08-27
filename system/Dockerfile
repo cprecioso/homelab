@@ -2,9 +2,6 @@
 
 FROM quay.io/fedora/fedora-coreos:44.20260802.3.1@sha256:af3ebad95f7f17771a79fc194edaa811e5eb2d2e489c49b6be03039bbe70440c
 
-# Disable SELinux
-COPY --link ./selinux/selinux.conf /etc/selinux/config
-
 # Utility programs
 RUN dnf install -y screen ncdu glibc-langpack-en glibc-langpack-es && dnf clean all
 
