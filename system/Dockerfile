@@ -78,4 +78,7 @@ RUN systemctl enable podman-image-prune.timer
 COPY --link ./claude/claude-code.repo /etc/yum.repos.d/claude-code.repo
 RUN dnf install -y claude-code && dnf clean all
 
+# Add Wifi support
+RUN dnf install -y NetworkManager-wifi realtek-firmware && dnf clean all
+
 RUN bootc container lint
