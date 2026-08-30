@@ -1,7 +1,8 @@
 [Unit]
 Description=Run Portainer
-After=podman.socket
+After=podman.socket tailscaled.service
 Requires=podman.socket
+Wants=tailscaled.service
 
 [Container]
 Image=portainer.image
