@@ -1,0 +1,21 @@
+[Unit]
+Description=Snapshot the Paperless DB and upload it to B2
+Wants=network-online.target
+After=network-online.target paperless-webserver.service
+
+[Container]
+Image=paperless-webserver.image
+# Runs as the paperless user so no root-owned -wal/-shm files can appear in the data dir.
+Entrypoint=python3
+Exec=/db-dump.py
+Volume=paperless-data.volume:/data
+Volume=/usr/libexec/paperless-db-dump.py:/db-dump.py:ro
+User=1000
+Group=1000
+
+[Service]
+Type=oneshot
+LoadCredential=rclone-podman.conf
+# Runs on the host after the snapshot succeeded; a failed snapshot skips these.
+ExecStartPost=/bin/sh -c 'rclone --config="$CREDENTIALS_DIRECTORY/rclone-podman.conf" copyto /var/lib/containers/storage/volumes/systemd-paperless-data/_data/backup/db.sqlite3 "paperless-backend:backups/db/db-$(date -u +%%Y%%m%%dT%%H%%M%%SZ).sqlite3"'
+ExecStartPost=/bin/sh -c 'rclone --config="$CREDENTIALS_DIRECTORY/rclone-podman.conf" delete --min-age 14d paperless-backend:backups/db'

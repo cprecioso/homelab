@@ -50,6 +50,8 @@ COPY --link ./paperless/quadlet/* /etc/containers/systemd/
 
 # Copy extra Paperless files
 COPY --link ./paperless/systemd/* /etc/systemd/system/
+COPY --link ./paperless/db-dump.py /usr/libexec/paperless-db-dump.py
+RUN systemctl enable paperless-db-backup.timer
 
 # Enable bootc automatic updates
 COPY --link ./bootc/systemd/* /etc/systemd/system/

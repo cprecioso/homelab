@@ -1,0 +1,10 @@
+[Unit]
+Description=Hourly Paperless DB snapshot to B2
+
+[Timer]
+OnCalendar=hourly
+RandomizedDelaySec=5m
+Persistent=true
+
+[Install]
+WantedBy=timers.target
