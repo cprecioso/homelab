@@ -7,9 +7,15 @@ Image=matter-server.image
 ContainerName=matter-server
 Volume=/var/opt/hass/matter-server/data:/data
 Network=host
-PodmanArgs=--privileged
+Environment=TZ=Europe/Madrid
+Environment=LISTEN_ADDRESS=127.0.0.1
+HealthStartPeriod=5m
 
 [Service]
+# The image runs unprivileged as uid 1000; the data dir was created root-owned
+# by the python server. Fixing it up here keeps it declarative and also covers
+# a restore from backup.
+ExecStartPre=/bin/chown -R 1000:1000 /var/opt/hass/matter-server/data
 Restart=always
 TimeoutStartSec=900
 TimeoutStopSec=70
