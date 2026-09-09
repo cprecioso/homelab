@@ -73,7 +73,7 @@ services:
       - "${BASE_FOLDER:?error}/config/jackett:/config"
 
   heimdall:
-    image: lscr.io/linuxserver/heimdall:2.8.2
+    image: lscr.io/linuxserver/heimdall:2.8.3
     pull_policy: always
     restart: always
     expose:
