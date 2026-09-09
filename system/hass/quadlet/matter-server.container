@@ -9,7 +9,6 @@ Volume=/var/opt/hass/matter-server/data:/data
 Network=host
 Environment=TZ=Europe/Madrid
 Environment=LISTEN_ADDRESS=127.0.0.1
-HealthStartPeriod=5m
 
 [Service]
 # The image runs unprivileged as uid 1000; the data dir was created root-owned
