@@ -2,4 +2,4 @@
 Description=Fetch ESPHome Device Builder image
 
 [Image]
-Image=ghcr.io/esphome/esphome:2026.8.1
+Image=ghcr.io/esphome/esphome:2026.8.2
