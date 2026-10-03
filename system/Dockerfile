@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM quay.io/fedora/fedora-coreos:44.20260817.3.2@sha256:39a8d0746bed7b9e1bd2faf3fbec56840bb0645f294139686ce2e8ac260e54a4
+FROM quay.io/fedora/fedora-coreos:44.20260913.3.2@sha256:fc025291309d4a3c096ab072414966bccdcdc05d5cf40e81ab4b39326bf7d113
 
 # Disable SELinux
 COPY --link ./selinux/selinux.conf /etc/selinux/config
