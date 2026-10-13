@@ -1,11 +1,11 @@
 # syntax=docker/dockerfile:1
 
-FROM docker.io/library/caddy:2.11.6-builder-alpine AS builder
+FROM docker.io/library/caddy:2.11.7-builder-alpine AS builder
 
 RUN xcaddy build \
   --with github.com/caddy-dns/cloudflare@v0.2.4
 
-FROM docker.io/library/caddy:2.11.6-alpine
+FROM docker.io/library/caddy:2.11.7-alpine
 
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 
