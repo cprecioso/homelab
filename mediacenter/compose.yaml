@@ -126,3 +126,16 @@ services:
     env_file: .env
     volumes:
       - "${BASE_FOLDER:?error}/config/profilarr/config:/config"
+
+  cleanuparr:
+    image: ghcr.io/cleanuparr/cleanuparr:2.10.10
+    pull_policy: always
+    restart: always
+    expose:
+      - 11011
+    env_file: .env
+    environment:
+      - PORT=11011
+    volumes:
+      - "${BASE_FOLDER:?error}/config/cleanuparr:/config"
+      - "${BASE_FOLDER:?error}/media:/media"
