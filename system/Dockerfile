@@ -42,6 +42,11 @@ RUN systemctl enable cockpit.socket
 # Add Rclone and FUSE
 RUN dnf install -y rclone fuse && dnf clean all
 
+# Install Incus
+RUN dnf install -y incus && dnf clean all
+COPY --link ./incus/systemd/* /etc/systemd/system/
+RUN systemctl enable incus.service incus-startup.service incus-subids.service
+
 # Copy quadlets
 COPY --link ./hass/quadlet/* /etc/containers/systemd/
 COPY --link ./portainer/quadlet/* /etc/containers/systemd/
