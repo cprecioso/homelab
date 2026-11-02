@@ -1,0 +1,11 @@
+[Unit]
+Description=Fetch Tailscale TLS certificate for Cockpit
+After=network-online.target tailscaled.service tailscale-config.service
+Wants=network-online.target tailscaled.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/cockpit-tailscale-cert.sh
+
+[Install]
+WantedBy=multi-user.target

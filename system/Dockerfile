@@ -39,6 +39,11 @@ RUN dnf install -y \
   && dnf clean all
 RUN systemctl enable cockpit.socket
 
+# Use Tailscale TLS certificate for Cockpit
+COPY --link ./cockpit/systemd/* /etc/systemd/system/
+COPY --link ./cockpit/cockpit-tailscale-cert.sh /usr/libexec/cockpit-tailscale-cert.sh
+RUN systemctl enable cockpit-tailscale-cert.service cockpit-tailscale-cert.timer
+
 # Add Rclone and FUSE
 RUN dnf install -y rclone fuse && dnf clean all
 
