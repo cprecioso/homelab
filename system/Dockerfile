@@ -33,7 +33,6 @@ RUN dnf install -y \
   cockpit-networkmanager \
   cockpit-ostree \
   cockpit-podman \
-  cockpit-selinux \
   cockpit-storaged \
   cockpit-system \
   && dnf clean all
