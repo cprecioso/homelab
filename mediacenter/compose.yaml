@@ -1,6 +1,6 @@
 services:
   plex:
-    image: lscr.io/linuxserver/plex:1.43.4
+    image: lscr.io/linuxserver/plex:1.43.5
     pull_policy: always
     restart: always
     network_mode: host
@@ -37,7 +37,7 @@ services:
       - "${BASE_FOLDER:?error}/media:/media"
 
   qbittorrent:
-    image: lscr.io/linuxserver/qbittorrent:5.2.4
+    image: lscr.io/linuxserver/qbittorrent:5.3.0
     pull_policy: always
     restart: always
     expose:
@@ -53,7 +53,7 @@ services:
       - "${BASE_FOLDER:?error}/media:/media"
 
   prowlarr:
-    image: lscr.io/linuxserver/prowlarr:2.6.5
+    image: lscr.io/linuxserver/prowlarr:2.7.0
     pull_policy: always
     restart: always
     expose:
@@ -73,7 +73,7 @@ services:
       - "${BASE_FOLDER:?error}/config/jackett:/config"
 
   heimdall:
-    image: lscr.io/linuxserver/heimdall:2.8.3
+    image: lscr.io/linuxserver/heimdall:2.8.4
     pull_policy: always
     restart: always
     expose:
@@ -112,7 +112,7 @@ services:
     env_file: .env
 
   profilarr:
-    image: ghcr.io/dictionarry-hub/profilarr:2.2.0
+    image: ghcr.io/dictionarry-hub/profilarr:2.3.1
     pull_policy: always
     restart: always
     expose:
@@ -128,7 +128,7 @@ services:
       - "${BASE_FOLDER:?error}/config/profilarr/config:/config"
 
   cleanuparr:
-    image: ghcr.io/cleanuparr/cleanuparr:2.10.10
+    image: ghcr.io/cleanuparr/cleanuparr:2.10.12
     pull_policy: always
     restart: always
     expose:
