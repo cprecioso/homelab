@@ -1,2 +1,2 @@
 [Image]
-Image=docker.io/gotenberg/gotenberg:8.40
+Image=docker.io/gotenberg/gotenberg:9.2
