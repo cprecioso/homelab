@@ -16,7 +16,6 @@ on:
 
 concurrency:
   group: main-branch-build
-  cancel-in-progress: true
 
 env:
   REGISTRY: ghcr.io
